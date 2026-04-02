@@ -1,6 +1,7 @@
 using GestaoRH_API.Data;
 using GestaoRH_API.Repositories;
 using Microsoft.EntityFrameworkCore;
+using Scalar.AspNetCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -20,6 +21,7 @@ var app = builder.Build();
 if (app.Environment.IsDevelopment())
 {
     app.MapOpenApi();
+   
 }
 
 app.UseHttpsRedirection();

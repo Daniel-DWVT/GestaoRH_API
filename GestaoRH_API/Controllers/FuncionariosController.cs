@@ -26,6 +26,7 @@ namespace GestaoRH_API.Controllers
             }
             return Ok(funcionarioEncontrado);
         }
+        [HttpGet("{id}")]
         public async Task<IActionResult> GetById(int id)
         {
             var funcionarioEncontrado = await _repository.GetByIdAsync(id);
@@ -35,6 +36,7 @@ namespace GestaoRH_API.Controllers
             }
             return Ok(funcionarioEncontrado);
         }
+        [HttpPost]
         public async Task<IActionResult> Create(int id, FuncionarioCreateDto dto)
         {
             var novoFuncionario = new Funcionario
@@ -47,6 +49,7 @@ namespace GestaoRH_API.Controllers
             return CreatedAtAction(nameof(GetById), new { Id = id }, novoFuncionario);
             
         }
+        [HttpPut("{id}")]
         public async Task<IActionResult> Update(int id, FuncionarioUpdateDto dto)
         {
             var funcionarioEncontrado = await _repository.GetByIdAsync(id);
@@ -63,6 +66,7 @@ namespace GestaoRH_API.Controllers
             var funcionarioAtualizado = await _repository.UpdateAsync(id, funcionarioNovosDados);
             return Ok(funcionarioAtualizado);
         }
+        [HttpDelete("{id}")]
         public async Task<IActionResult> Delete(int id)
         {
             var funcionarioEncontrado = await _repository.GetByIdAsync(id);
