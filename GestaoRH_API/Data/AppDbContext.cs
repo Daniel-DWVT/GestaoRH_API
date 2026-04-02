@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using GestaoRH_API.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace GestaoRH_API.Data
 {
@@ -7,6 +8,6 @@ namespace GestaoRH_API.Data
         public AppDbContext(DbContextOptions<AppDbContext> options) : base(options)
         {
         }
-        
+        public DbSet<Funcionario> Funcionarios { get; set; }
     }
 }
