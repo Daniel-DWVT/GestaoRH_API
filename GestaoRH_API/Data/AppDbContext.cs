@@ -8,6 +8,6 @@ namespace GestaoRH_API.Data
         public AppDbContext(DbContextOptions<AppDbContext> options) : base(options)
         {
         }
-        public DbSet<Funcionario> Funcionarios { get; set; }
+        public DbSet<Models.Funcionario> Funcionarios { get; set; }
     }
 }
