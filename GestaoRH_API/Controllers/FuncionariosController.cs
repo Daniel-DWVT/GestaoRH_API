@@ -37,7 +37,7 @@ namespace GestaoRH_API.Controllers
             return Ok(funcionarioEncontrado);
         }
         [HttpPost]
-        public async Task<IActionResult> Create(int id, FuncionarioCreateDto dto)
+        public async Task<IActionResult> Create(FuncionarioCreateDto dto)
         {
             var novoFuncionario = new Funcionario
             {
@@ -46,7 +46,7 @@ namespace GestaoRH_API.Controllers
                 Salario = dto.Salario
             };
             await _repository.CreateAsync(novoFuncionario);
-            return CreatedAtAction(nameof(GetById), new { Id = id }, novoFuncionario);
+            return CreatedAtAction(nameof(GetById), new { Id = novoFuncionario.Id }, novoFuncionario);
             
         }
         [HttpPut("{id}")]
